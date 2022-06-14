@@ -1,9 +1,37 @@
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
+import { useAuth } from '../context/AuthContext'
 
-type Props = {}
+const Login = () => {
+  const router = useRouter()
+  const { user, login } = useAuth()
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  })
 
-export default function login({}: Props) {
+  const handleLogin = async (e: any) => {
+    e.preventDefault()
+
+    console.log(user)
+    try {
+      await login(data.email, data.password)
+      router.push('/user/dashboard')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
   return (
-    <div>login</div>
+    <div className='container mx-auto'>
+      <form onSubmit={handleLogin}>
+        <input type="email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
+        <input type="password" value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} />
+        <button type="submit">Login</button>
+      </form>
+    </div>
   )
 }
+
+export default Login

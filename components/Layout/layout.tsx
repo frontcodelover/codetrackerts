@@ -1,12 +1,14 @@
-import Nav from './nav'
-import Footer from './footer'
+import Nav from "./nav";
+import Footer from "./footer";
 
-export default function Layout({ children}: any ) {
+//* Layout commun à tout le site
+
+export default function Layout({ children }: any) {
   return (
     <>
       <Nav />
       <main>{children}</main>
       <Footer />
     </>
-  )
+  );
 }

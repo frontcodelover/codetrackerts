@@ -4,11 +4,12 @@ import { auth } from "../firebase/firebase";
 import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 
+//* Navigation du site
+
 export default function Nav() {
   const { user, logout } = useAuth();
   const router = useRouter();
 
-  console.log(auth);
   return (
     <header className="top-0 z-50 bg-white">
       <div className="layout flex h-14 items-center justify-between">
@@ -49,7 +50,7 @@ export default function Nav() {
                     <Link href="/login">Se connecter</Link>
                   </li>
                   <li className="px-6 text-lg">
-                    <Link href="/signup">S'inscrire</Link>
+                    <Link href="/signup">S&apos;inscrire</Link>
                   </li>
                 </>
               )}

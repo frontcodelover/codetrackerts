@@ -3,7 +3,9 @@ import ImageSection from "./imageSection";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function section() {
+//* Section principale de la home page
+
+export default function Section() {
   const router = useRouter();
   return (
     <section className="py-10">
@@ -18,7 +20,7 @@ export default function section() {
           </h2>
           <div className="flex py-6">
             <button
-              className="bg-white border border-purple-600 py-3 px-6 mr-3 rounded font-semibold text-purple-600"
+              className="bg-white border border-purple-600 py-3 px-6 mr-3 rounded font-semibold text-purple-600 hover:bg-purple-700 hover:text-white transition duration-300 delay-150 hover:delay-0"
               onClick={() => {
                 router.push("/login");
               }}
@@ -26,7 +28,7 @@ export default function section() {
               Se connecter
             </button>
             <button
-              className="bg-purple-600 py-3 px-6 rounded text-white font-semibold"
+              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded transition duration-300 delay-150 hover:delay-0"
               onClick={() => {
                 router.push("/signup");
               }}

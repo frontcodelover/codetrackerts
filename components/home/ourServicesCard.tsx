@@ -4,6 +4,8 @@ import { AiOutlineProfile } from "react-icons/ai";
 import { MdQueryStats } from "react-icons/md";
 import { CgArrowTopRight } from "react-icons/cg";
 
+//* Permet d'afficher les cards pour les services de l'application
+
 export default function OurServicesCard() {
   return (
     <>

@@ -1,6 +1,7 @@
 import React from "react";
 import OurServicesCard from "./ourServicesCard";
-import { FaBeer } from "react-icons/fa";
+
+//* Composant OurServices permet de mettre en avant les cards pour les services de l'application
 
 export default function OurServices() {
   return (

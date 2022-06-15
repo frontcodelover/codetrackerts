@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../components/Layout/layout";
+import Layout from "../components/layout/layout";
 import { AuthContexProvider } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import ProtectedRoute from "../components/protectRoutes/ProtectedRoute";

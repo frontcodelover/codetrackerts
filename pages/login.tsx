@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
+//* Le composant Login affiche les inputs pour se connecter
+
 const Login = () => {
   const router = useRouter()
   const { user, login } = useAuth()

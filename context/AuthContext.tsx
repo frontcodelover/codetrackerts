@@ -2,6 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../components/firebase/firebase";
 
+//* Ce composant permet de gérer l'authentification de l'utilisateur
+//? Feature Github authentication ?
+
 const AuthContext = createContext<any>({});
 
 export const useAuth = () => useContext(AuthContext);

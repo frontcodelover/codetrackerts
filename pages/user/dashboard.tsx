@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
-import AllProjects from "../../components/project/allProjects";
+import AllProjects from "../../components/project/my-projects";
 
 //* le composant Dashboard est un composant qui permet d'afficher la liste des projets de l'utilisateur connecté
 //? Feature un recap de son profil
@@ -20,11 +20,11 @@ const Dashboard = (props: IAllProject) => {
   }, [user]);
 
   if (user.uid) {
-  return (
-    <div className="container mx-auto">
-      <AllProjects userUid={userUid} />
-    </div>
-  );
+    return (
+      <div className="container mx-auto">
+        <AllProjects userUid={userUid} />
+      </div>
+    );
   }
   return <div>Pas de projet</div>;
 };

@@ -75,29 +75,29 @@ const AllProjects = (userUid: any) => {
     <div className="py-9">
       <h1 className="text-3xl pb-9 font-semibold">Tous les projets</h1>
       <TextProjectSreen />
-      <div className="table-fixed">
+      <div className="">
         <div className="flex justify-center mx-auto">
           <div className="flex-col">
             <div className="">
               <div className="border-b border-gray-200 shadow">
                 <>
-                  <table className="table-fixed ">
-                    <thead className="bg-purple-600 table-fixed ">
+                  <table className="">
+                    <thead className="bg-purple-600">
                       <tr>
-                        <th className="px-6 py-2 text-xs text-white">
+                        <th className="px-6 py-2 text-xs text-white flex-auto">
                           Nom du projet
                         </th>
-                        <th className="px-6 py-2 text-xs text-white">
+                        <th className="px-6 py-2 text-xs text-white flex-auto w-96">
                           Description
                         </th>
-                        <th className="px-6 py-2 text-xs text-white">Stack</th>
-                        <th className="px-6 py-2 text-xs text-white">
+                        <th className="px-6 py-2 text-xs text-white flex-auto">Stack</th>
+                        <th className="px-6 py-2 text-xs text-white flex-auto">
                           Date de création
                         </th>
-                        <th className="px-6 py-2 text-xs text-white">Edit</th>
-                        <th className="px-6 py-2 text-xs text-white">Delete</th>
-                        <th className="px-6 py-2 text-xs text-white">
-                          Voir les stats
+                        
+                        <th className="px-6 py-2 text-xs text-white flex-auto">Supprimer</th>
+                        <th className="px-6 py-2 text-xs text-white flex-auto">
+                          Session
                         </th>
                       </tr>
                     </thead>
@@ -120,29 +120,22 @@ const AllProjects = (userUid: any) => {
                           <td className="px-6 py-4 text-sm text-gray-500">
                             {project.date}
                           </td>
-                          <td className="px-6 py-4">
-                            <a
-                              href="#"
-                              className="px-4 py-1 text-sm text-white bg-blue-400 rounded"
-                            >
-                              Edit
-                            </a>
-                          </td>
+                          
                           <td className="px-6 py-4">
                             <button
-                              className="px-4 py-1 text-sm text-white bg-red-400 rounded"
+                              className="px-4 py-2 text-sm text-white bg-red-400 rounded"
                               id={project.uid}
                               onClick={deletePost}
                             >
-                              Delete
+                              Supprimer le projet
                             </button>
                           </td>
                           <td className="px-6 py-4">
                             <a
-                              href="#"
-                              className="px-4 py-1 text-sm text-white bg-green-400 rounded"
+                              href={`project/${project.uid}`}
+                              className="px-4 py-2 text-sm text-white bg-green-600 rounded"
                             >
-                              Stats
+                              Voir les sessions
                             </a>
                           </td>
                         </tr>

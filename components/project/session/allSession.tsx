@@ -1,11 +1,10 @@
-import AddSessionButton from "./addSessionButton";
 import React from 'react'
 
 type Props = {}
 
 function AllSession({}: Props) {
   return (
-    <div><AddSessionButton /></div>
+    <div>Retrouvez ici toutes les sessions</div>
   )
 }
 

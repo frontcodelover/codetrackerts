@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import {
@@ -11,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../components/firebase/firebase";
 import AllSession from '../../../components/project/session/allSession';
+import AddSession from '../add-session';
+import AddSessionButton from '../../../components/project/session/addSessionButton';
 
 interface Props {
   uid: string,
@@ -70,6 +73,7 @@ export default function SingleProject() {
                   Date de création du projet
                   <p>{project.date}</p>
                 </div>
+                <a href={`session/${project.uid}`}>SESSION</a>
               </div>
             ))
               }
@@ -77,6 +81,7 @@ export default function SingleProject() {
         </div>
       </div>
       <AllSession />
+      <AddSessionButton id={id}/>
     </>
   )
 }

@@ -1,3 +1,28 @@
+# CODE TRACKER
+## V1 : Status WIP
+This project is a time tracker for developper who wants to track thier times. Habits need feedback, so we this app you can add your project / your session to keep motivation grow.
+
+### STACK
+Next / Firebase
+
+-----------
+## COMMIT convention
+[FEAT] => new feature
+[DOC] => documentation like README
+[FIX] => bugs correction
+[TEST] => testing
+[REFACTOR] => code cleaning or refactoring
+[STYLE] => only for styling
+[BUIL] => new dependancy like npm package
+
+A good commit example :
+```
+[DOC] add modification to README
+
+Add commit instruction and description
+```
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

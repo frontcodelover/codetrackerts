@@ -8,11 +8,17 @@ Next / Firebase
 -----------
 ## COMMIT convention
 [FEAT] => new feature
+
 [DOC] => documentation like README
+
 [FIX] => bugs correction
+
 [TEST] => testing
+
 [REFACTOR] => code cleaning or refactoring
+
 [STYLE] => only for styling
+
 [BUIL] => new dependancy like npm package
 
 A good commit example :

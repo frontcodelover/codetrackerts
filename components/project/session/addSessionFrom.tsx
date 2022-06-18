@@ -39,7 +39,7 @@ function AddSessionFrom({id}: Props) {
     <div className="w-full max-w-3xl">
     <form onSubmit={handleSubmit}>
       <p className="block text-gray-700 text-sm font-bold mb-2">
-        Donnez un nom à votre projet
+        Donnez un nom à votre session
       </p>
       <input
         required
@@ -52,7 +52,7 @@ function AddSessionFrom({id}: Props) {
       />
 
       <p className="block text-gray-700 text-sm font-bold mb-2 pt-6">
-        Décrivez votre projet. Fonctionnalités, feature, apprentissage...
+        Qu'avez-vous fait lors de cette session ?
       </p>
       <textarea
         name="note"
@@ -62,7 +62,7 @@ function AddSessionFrom({id}: Props) {
         placeholder="Décrivez votre projet..."
       ></textarea>
       <p className="block text-gray-700 text-sm font-bold mb-2 pt-6">
-        Quel est son type ? (apprentissage, projet client, étude...)
+        Quelle a été la durée de votre session ?
       </p>
       <input
         required
@@ -75,7 +75,7 @@ function AddSessionFrom({id}: Props) {
         placeholder={`Type de projet`}
       />
       <p className="block text-gray-700 text-sm font-bold mb-2 pt-6">
-        Quand a-t-il été créé ?
+        Quand la session s'est-elle déroulée ?
       </p>
       <input
         required

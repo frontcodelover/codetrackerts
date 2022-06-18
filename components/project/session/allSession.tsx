@@ -45,7 +45,7 @@ function AllSession({ uid, date, note, sessionName, time }: Props) {
 
   return (
     <>
-      {sessionsNumber < 0 ? ( 
+      {sessionsNumber <= 0 ? ( 
         <>
           <h1>Aucune session pour ce projet. Ajoutez votre première session maintenant.</h1>
         </>

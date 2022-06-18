@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from "../../firebase/firebase";
+import Graph from './graphSession';
 
 interface Props {
   id : string,
@@ -15,6 +16,8 @@ interface Props {
 function AllSession({ uid, date, note, sessionName, time }: Props) {
   const [sessions, setSessions] = useState<any[]>([]);
   const [sessionsNumber, setSessionsNumber] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [arrayOfLabel, setArrayOfLabel] = useState<string[]>([]);
   const router = useRouter()
   const { id } = router.query
   
@@ -32,15 +35,30 @@ function AllSession({ uid, date, note, sessionName, time }: Props) {
           sessionName: doc.data().inputs.sessionName,
           time: doc.data().inputs.time,
         }));
+        setIsLoading(false)
         setSessions(session)
         setSessionsNumber(session.length)
+        setArrayOfLabel(session.map((session) => session.time))
       }
     )
   }
   useEffect(() => {
     getSessions()
+    if (!isLoading) {
+      dateArrayMap()
+    }
   }
-  , [id]);
+  , [id, isLoading]);
+
+  const dateArray : string[] = [];
+  const dateArrayMap = () => {
+
+    sessions.map((date) => {
+      return dateArray.push(date.date)
+    }
+    )
+   
+  }
 
 
   return (
@@ -104,6 +122,7 @@ function AllSession({ uid, date, note, sessionName, time }: Props) {
              </div>
            </div>
       )}
+      <Graph arrayOfLabel={arrayOfLabel} />
     </>
   )
 }

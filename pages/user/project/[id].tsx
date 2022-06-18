@@ -30,7 +30,7 @@ export default function SingleProject() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
+
 
   useEffect(() => {
     getProjects();
@@ -59,6 +59,7 @@ export default function SingleProject() {
         date: doc.data().inputs.date,
       }));
       setProjects(project);
+      console.log(project.date)
     });
   };
 
@@ -96,7 +97,7 @@ export default function SingleProject() {
     });
     sumTimeMinutes();
     sumTimeHours();
-    console.log(allHoursTab);
+
   };
 
   //* sumTimeMinutes function to sum all minutes and convert if minutes is / by 60 to hours */

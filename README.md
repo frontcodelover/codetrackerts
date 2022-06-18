@@ -19,7 +19,7 @@ Next / Firebase
 
 [STYLE] => only for styling
 
-[BUIL] => new dependancy like npm package
+[BUILD] => new dependancy like npm package
 
 A good commit example :
 ```

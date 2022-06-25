@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import OurServices from "../components/home/ourServices";
+import React from "react";
 
 import Section from "../components/home/section";
 

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { auth } from "../firebase/firebase";
 import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 

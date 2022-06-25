@@ -15,6 +15,13 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "jest.config.ts",
+    "__test__/pages/index.test.tsx",
+    "__test__/pages/login.test.tsx"
+, "babel.config.js"  ],
   "exclude": ["node_modules"]
 }

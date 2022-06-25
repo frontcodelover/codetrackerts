@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,51 +8,66 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
-
-type Props = {}
+type Props = {
+  arrayOfLabel: any;
+  arrayOfDate: string[];
+};
 
 ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Tooltip,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip
+);
+function Graph(tab: { tab: { duree: any; date: any } }) {
+  useEffect(() => {}, []);
 
-    );
-    function Graph({arrayOfLabel}: Props) {
-  
-const options = {
-      responsive: true,
-      plugins: {
-
-    title: {
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: "Chart.js Line Chart",
+      },
     },
-},
-};
+  };
 
-const labels = arrayOfLabel;
+  const myData = tab.tab.duree;
+  const labels = tab.tab.date;
+  console.log("durée dans graph", tab.tab.duree);
+  console.log("date dans graph", myData);
+ //Le but est de faire une autre tableau avec les valeur en nombre pour pouvoir les mettre en absis
+  let tabFormat:any[] = [];
 
-const data = {
+  const mapDeDate = myData.map((duree: string | any[]) => {
+    const heureNumber:number[]|any = duree.slice(0, 2);
+      const minutesNumber: number[] | any = duree.slice(3, 5);
+      
+
+      const formatDuree = heureNumber + '.' + minutesNumber
+      console.log(formatDuree)
+    tabFormat.push(Number.parseFloat(formatDuree));
+
+ 
+  });
+
+  console.log("map de date", tabFormat);
+
+  const data = {
     labels,
     datasets: [
-        {
-            data: [1, 2 ,3, 4, 5, 6, 7, 8, 9, 10],
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
+      {
+        data: tabFormat,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
     ],
-};
+  };
 
-console.log(arrayOfLabel)
-
-return (
-    <Line options={options} data={data} />
-    )
+  return <Line options={options} data={data} />;
 }
-
 export default Graph;

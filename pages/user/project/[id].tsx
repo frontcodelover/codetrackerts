@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 import { db } from "../../../components/firebase/firebase";
 import AddSession from "../add-session";
 import AddSessionButton from "../../../components/project/session/addSessionButton";
@@ -15,7 +15,7 @@ interface Props {
   userID: string;
   description: string;
   date: any;
-}
+}[]
 
 interface Session {
   time: any;
@@ -45,8 +45,7 @@ export default function SingleProject() {
 
   const getProjects = async () => {
     const dataBaseProject = query(
-      collection(db, "project"),
-      where("uid", "==", id)
+      collection(db, "project"), where("uid", "==", id),
     );
     await getDocs(dataBaseProject).then((response) => {
       const project: Props[] = response.docs.map((doc) => ({
@@ -59,14 +58,14 @@ export default function SingleProject() {
         date: doc.data().inputs.date,
       }));
       setProjects(project);
-      console.log(project.date)
     });
   };
 
   const getDetailsForSessions = async () => {
     const sessionsDatabase = query(
       collection(db, "session"),
-      where("projectUid", "==", id)
+      where("projectUid", "==", id),
+      orderBy('createdBy', 'asc')
     );
     await getDocs(sessionsDatabase).then((response) => {
       const session: Session[] = response.docs.map((doc) => ({
@@ -175,7 +174,7 @@ export default function SingleProject() {
               </div>
             ))}
             <div className="h-full px-6 bg-white w-4/4">
-              <AllSession />
+              <AllSession uid={""} date={[]} note={[]} sessionName={""} time={undefined} />
             </div>
           </div>
         </div>

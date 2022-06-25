@@ -6,7 +6,7 @@ import { db } from "../../firebase/firebase";
 const uuid = nanoid();
 
 type Props = {
-  id : string,
+  id?:string | string[],
   note : string,
   date : string,
   time : number,
@@ -15,12 +15,12 @@ type Props = {
 
 function AddSessionFrom({id}: Props) {
   console.log("mon id dans le add session from : ", id)
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({}) as any;
 
   const handleChange = (event: any) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
+    setInputs((values: any) => ({ ...values, [name]: value }));
     // console.log(event)
   };
 

@@ -1,9 +1,10 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../components/layout/layout";
+import Layout from "../components/Layout/layout";
 import { AuthContexProvider } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import ProtectedRoute from "../components/protectRoutes/ProtectedRoute";
+import ErrorBoundary from '../components/ErrorBoundary'
 
 const noAuthReqired = ["/", "/login", "/signup"];
 
@@ -19,8 +20,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
       ) : (
           <ProtectedRoute>
-             <Layout>
-              <Component {...pageProps} />
+            <Layout>
+            <ErrorBoundary>
+                <Component {...pageProps} />
+                </ErrorBoundary>
             </Layout>
           </ProtectedRoute>
         )}

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import Graph from "./graphSession";
+import { orderBy } from "firebase/firestore/lite";
 
 interface Props {
   uid: string;
@@ -25,7 +26,9 @@ function AllSession({ uid, date, note, sessionName, time }: Props) {
   const getSessions = async () => {
     const dataBaseSession = query(
       collection(db, "session"),
-      where("projectUid", "==", id)
+      where("projectUid", "==", id),
+      orderBy("createdAt", "asc")
+
     );
     await getDocs(dataBaseSession).then((response) => {
       const session: Props[] = response.docs.map((doc) => ({
@@ -55,14 +58,14 @@ function AllSession({ uid, date, note, sessionName, time }: Props) {
       return dateArray.push(date.date);
     });
   };
-  console.log("ma date", arrayOfDate);
+  // console.log("ma date", arrayOfDate);
 
   const tab = {
     date: arrayOfDate,
     duree : arrayOfLabel
 }
 
-  console.log(tab)
+  // console.log(tab)
 
   return (
     <>

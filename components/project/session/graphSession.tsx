@@ -4,12 +4,11 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
+  BarElement,
   LineElement,
-  Title,
   Tooltip,
-  Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 type Props = {
   arrayOfLabel: any;
@@ -19,6 +18,7 @@ type Props = {
 ChartJS.register(
   CategoryScale,
   LinearScale,
+  BarElement,
   PointElement,
   LineElement,
   Tooltip
@@ -38,8 +38,8 @@ function Graph(tab: { tab: { duree: any; date: any } }) {
 
   const myData = tab.tab.duree;
   const labels = tab.tab.date;
-  console.log("durée dans graph", tab.tab.duree);
-  console.log("date dans graph", myData);
+  // console.log("durée dans graph", tab.tab.duree);
+  // console.log("date dans graph", myData);
  //Le but est de faire une autre tableau avec les valeur en nombre pour pouvoir les mettre en absis
   let tabFormat:any[] = [];
 
@@ -49,13 +49,13 @@ function Graph(tab: { tab: { duree: any; date: any } }) {
       
 
       const formatDuree = heureNumber + '.' + minutesNumber
-      console.log(formatDuree)
+      // console.log(formatDuree)
     tabFormat.push(Number.parseFloat(formatDuree));
 
  
   });
 
-  console.log("map de date", tabFormat);
+  // console.log("map de date", tabFormat);
 
   const data = {
     labels,
@@ -68,6 +68,6 @@ function Graph(tab: { tab: { duree: any; date: any } }) {
     ],
   };
 
-  return <Line options={options} data={data} />;
+  return <Bar options={options} data={data} />;
 }
 export default Graph;

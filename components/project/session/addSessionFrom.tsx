@@ -30,6 +30,7 @@ function AddSessionFrom({id}: Props) {
     await setDoc(doc(db, "session", uuid), {
       projectUid: id,
       uid : uuid,
+      createdAt: Date.now(),
       inputs,
     });
     //  refreshPage()

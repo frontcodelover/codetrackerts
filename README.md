@@ -1,6 +1,7 @@
 # CODE TRACKER
 ## V1 : Status WIP
-This project is a time tracker for developper who wants to track thier times. Habits need feedback, so we this app you can add your project / your session to keep motivation grow.
+This project is a time tracker for developper who wants to track thier times. 
+Habits need feedback, so with this app you can add your project / your session to keep motivation grow.
 
 ### STACK
 Next / Firebase
